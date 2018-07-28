@@ -30,7 +30,7 @@ Article.prototype.toHtml = function() {
 
   $newArticle.attr('data-category', this.category);
 
-  /* TODO: Now use jQuery traversal and setter methods to fill in the rest of the current template clone with values of the properties of this particular Article instance.
+  /* TODONE: Now use jQuery traversal and setter methods to fill in the rest of the current template clone with values of the properties of this particular Article instance.
     We need to fill in:
       1. author name,
       2. author url,
@@ -38,7 +38,10 @@ Article.prototype.toHtml = function() {
       4. article body, and
       5. publication date. */
 
-  // REVIEW: Display the date as a relative number of 'days ago'
+  // REVIEWED: Display the date as a relative number of 'days ago'
+  $newArticle.find('header h1').html();
+  $newArticle.find('address a').attr("href");
+  $newArticle.find('section.article-body').html();
   $newArticle.find('time').html('about ' + Math.floor((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
   $newArticle.append('<hr>');
   return $newArticle;
@@ -51,17 +54,25 @@ rawData.sort(function(a,b) {
 
 // TODO: Refactor these for loops using the .forEach() array method.
 
-for(let i = 0; i < rawData.length; i++) {
-  articles.push(new Article(rawData[i]));
-}
+rawData.forEach(function(element) {
+  articles.push(new Article(element));
+})
 
-for(let i = 0; i < articles.length; i++) {
+// for(let i = 0; i < rawData.length; i++) {
+//   articles.push(new Article(rawData[i]));
+// }
+
+articles.forEach(function(element) {
+  $('#articles').append(element.toHtml());
+})
+
+// for(let i = 0; i < articles.length; i++) {
 
   // REVIEW: below code will hang until TODO about cloned article is handled
   // Once that TODO is done uncomment code
 
-  $('#articles').append(articles[i].toHtml());
+  // $('#articles').append(articles[i].toHtml());
 
   // COMMENT: (STRETCH) Can you figure out why code hangs?
   // It has to do with the clone() method
-}
+
