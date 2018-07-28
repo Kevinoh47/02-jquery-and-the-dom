@@ -38,8 +38,8 @@
           <div>
             By <address><a href="">Author Name</a></address>
             published <time datetime="2000-01-01">Publish Time</time>
-            <!-- COMMENT: What is the <time> HTML element used for? How does this connect to our JS files?  -->
-            <!-- PUT YOUR RESPONSE HERE -->
+            <!-- COMMENTED: What is the <time> HTML element used for? How does this connect to our JS files?  -->
+            <!-- Time is used for calculating how many days ago the article was published. article.js grabs it and uses it to subtract from the current date in order to calculate the freshness of the article.   -->
           </div>
         </header>
         <section class="article-body"></section>
@@ -49,7 +49,10 @@
   <footer>
     &copy; 2018 Code Fellows | Static Blog | Happy Ipsum!
   </footer>
-<!-- // TODO: Include any/all needed script tags -->
+<!-- // TODONE: Include any/all needed script tags -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="scripts/blogArticles.js"></script>
+<script src="scripts/article.js"></script>
 
 </body>
 </html>

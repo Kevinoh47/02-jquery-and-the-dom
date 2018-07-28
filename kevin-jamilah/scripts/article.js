@@ -10,7 +10,7 @@ function Article (rawDataObj) {
   // Save ALL the properties of `rawDataObj` into `this`
   this.title = rawDataObj.title;
   this.category = rawDataObj.category;
-  this.author = rawDataObj.category;
+  this.author = rawDataObj.author;
   this.authorUrl = rawDataObj.authorUrl;
   this.publishedOn = rawDataObj.publishedOn;
   this.body = rawDataObj.body;
@@ -39,9 +39,10 @@ Article.prototype.toHtml = function() {
       5. publication date. */
 
   // REVIEWED: Display the date as a relative number of 'days ago'
-  $newArticle.find('header h1').html();
-  $newArticle.find('address a').attr("href");
-  $newArticle.find('section.article-body').html();
+  $newArticle.find('header h1').html(this.title);
+  $newArticle.find('a').html(this.author);
+  $newArticle.find('address a').attr('href', this.authorUrl);
+  $newArticle.find('section.article-body').html(this.body);
   $newArticle.find('time').html('about ' + Math.floor((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
   $newArticle.append('<hr>');
   return $newArticle;
@@ -58,21 +59,6 @@ rawData.forEach(function(element) {
   articles.push(new Article(element));
 })
 
-// for(let i = 0; i < rawData.length; i++) {
-//   articles.push(new Article(rawData[i]));
-// }
-
 articles.forEach(function(element) {
   $('#articles').append(element.toHtml());
 })
-
-// for(let i = 0; i < articles.length; i++) {
-
-  // REVIEW: below code will hang until TODO about cloned article is handled
-  // Once that TODO is done uncomment code
-
-  // $('#articles').append(articles[i].toHtml());
-
-  // COMMENT: (STRETCH) Can you figure out why code hangs?
-  // It has to do with the clone() method
-
