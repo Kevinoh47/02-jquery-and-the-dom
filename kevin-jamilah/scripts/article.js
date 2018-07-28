@@ -48,11 +48,11 @@ Article.prototype.toHtml = function() {
 };
 
 rawData.sort(function(a,b) {
-  // REVIEW: Take a look at this sort method; This may be the first time we've seen it. Look at the docs and think about how the dates would be sorted if the callback were not included in this method.
+  // REVIEWED: Take a look at this sort method; This may be the first time we've seen it. Look at the docs and think about how the dates would be sorted if the callback were not included in this method.
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
 
-// TODO: Refactor these for loops using the .forEach() array method.
+// TODONE: Refactor these for loops using the .forEach() array method.
 
 rawData.forEach(function(element) {
   articles.push(new Article(element));
