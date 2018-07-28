@@ -1,0 +1,27 @@
+body {
+  line-height: 1.5;
+  font-size: 100%;
+  color: #313131;
+}
+
+main {
+  margin: 0 20px;
+}
+
+body > header {
+  background: #FFEAAA;
+}
+
+nav {
+  padding: 0.1em;
+}
+
+address {
+  color: #777;
+  display: inline-block;
+}
+
+address a {
+  font-weight: bold;
+  text-decoration: none;
+}
